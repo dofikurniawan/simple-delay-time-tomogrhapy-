@@ -108,6 +108,7 @@ plt.show()
 plt.plot(rms)
 plt.xlabel('iter')
 plt.ylabel('rms')
+plt.show()
 #Plot velocity and ray tracing
 xgrid=np.arange(0,2100,100)
 ygrid=np.arange(0,-1100,-100)
