@@ -26,7 +26,7 @@ while k<5:
         v1=v1[0]
         v2=v2[0]
 
-#ray tracing hukum snell
+#ray tracing menggunakan hukum snell
 #teta=np.arange(0,np.pi/2,np.pi/360)
     l1=[]
     l2=[]
@@ -108,10 +108,20 @@ plt.show()
 plt.plot(rms)
 plt.xlabel('iter')
 plt.ylabel('rms')
-
+#Plot velocity and ray tracing
 xgrid=np.arange(0,2100,100)
 ygrid=np.arange(0,-1100,-100)
 X,Y=np.meshgrid(xgrid,ygrid)
 z=np.zeros((11,21))
-a=z[:,0:10]+v1
-b=z[:,11:21]+v2
+for i in range(11):
+    for j in range(21):
+        if j<10:
+            z[i,j]=z[i,j]+v1
+        else:
+            z[i,j]=z[i,j]+v2
+plt.pcolor(X,Y,z)
+plt.plot([0,1000,2000],[-633,y1[-1],y2[-1]],'-g',[0,1000,2000],[-250,y3[-1],y4[-1]],'-k')
+plt.plot([1000,2000],[0,-1000],'-b')
+plt.plot([1000,1000],[0,-1000],'-r')
+plt.colorbar()
+
